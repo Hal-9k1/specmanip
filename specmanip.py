@@ -1,6 +1,7 @@
 import sys
 import argparse
 import numpy as np
+from build.githash import HASH
 
 def get_col(csv_path, col, skip):
   with open(csv_path, 'r') as f:
@@ -68,6 +69,7 @@ def main(arg_list):
     prog='specmanip.py',
     description='Manipulates spectrum CSVs produced by Spectrum Studio',
   )
+  parser.add_argument('-v', '--version', action='version', version=f'%(prog)s {HASH}')
   subparsers = parser.add_subparsers(required=True)
   replace_background_parser = subparsers.add_parser('replace-background')
   replace_background_parser.set_defaults(subcmd_func=replace_background_subcmd)
