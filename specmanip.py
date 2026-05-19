@@ -93,7 +93,7 @@ def multiply_subcmd(args):
   output_file, output_col = parse_def(args.output, modify_col)
   replace_col(
     orig_file,
-    args.output,
+    output_file,
     ((output_col, get_col(orig_file, modify_col, args.header_skip) * args.factor),),
     args.header_skip,
   )
